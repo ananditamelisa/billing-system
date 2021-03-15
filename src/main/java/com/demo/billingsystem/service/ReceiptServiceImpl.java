@@ -16,7 +16,8 @@ public class ReceiptServiceImpl implements ReceiptService{
 
   @Override
   public void updateReceiptAddress(CustomerAddressUpdateDto customerAddressUpdateDto) {
-    List<Receipt> receiptList = receiptRepository.findAllByCustomerName(customerAddressUpdateDto.getName());
+    List<Receipt> receiptList = receiptRepository.findAllByCustomerName(
+        customerAddressUpdateDto.getName());
     receiptList.forEach(receipt -> {
       receipt.setCustomerAddress(customerAddressUpdateDto.getNewAddress());
     });
